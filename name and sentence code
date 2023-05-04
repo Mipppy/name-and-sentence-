@@ -1,0 +1,82 @@
+var first = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "Fr", "Sp", "Gr", "Ev", "Sr", "Pr", "Ch", "Th", "Fh", "Dr", "Sh", "Hr"]
+var second = ["oo", "au","a","e","u","i","o","y", "ea", "eo","oy","ae","ie", "ou", "'","ay"]
+var third = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "rd", "rt", "th", "ph", "ll", "gh", "th", "sh", "fh", "rw", "pp", "ck", "mn", "tk"]
+var fourth = ["oo", "au", "a", "e", "u", "i", "o", "y", "ea", "eo", "oy", "ae", "ie", "'","ay"]
+var fivth = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "rd","rt","th","ph","ll","gh", "th", "sh", "ly", "fh", "rw", "pp", "ck", "mn", "tk"]
+var date, day, tod,weather,things, insults, activities,body, opener,neutralSenStarter, badSenStarter,happySenStarter,sadSenStarter
+var firstSen, firstSen1, firstSen2, firstSen3, secondSen, secondSen1, secondSen2, secondSen3
+document.getElementById("gen").addEventListener("click", function() {
+  gen()
+})
+function gen() {
+
+  var output = first[Math.floor(Math.random() * first.length)] + second[Math.floor(Math.random() * second.length)] + third[Math.floor(Math.random() * third.length)] + fourth[Math.floor(Math.random() * fourth.length)] + fivth[Math.floor(Math.random() * fivth.length)]
+  document.getElementById("first").innerHTML = output + ": "
+  document.getElementById("first1").innerHTML = output + ": "
+  document.getElementById("first2").innerHTML = output + ": "
+  document.getElementById("first3").innerHTML = output + ": "
+  var output1 = first[Math.floor(Math.random() * first.length)] + second[Math.floor(Math.random() * second.length)] + third[Math.floor(Math.random() * third.length)] + fourth[Math.floor(Math.random() * fourth.length)] + fivth[Math.floor(Math.random() * fivth.length)]
+  document.getElementById("second").innerHTML = output1 + ": "
+  document.getElementById("second1").innerHTML = output1 + ": "
+  document.getElementById("second2").innerHTML = output1 + ": "
+  document.getElementById("second3").innerHTML = output1 + ": "
+
+  sentence();
+}
+function reset() {
+  date = new Date
+  day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+  tod = ["morning", "afternoon", "night", "day", "lunchtime"]
+  weather = ["warmth", "Sun", "light breeze", "heavy breeze", "tornado", "wind", "rain", "hail", "snow"]
+  things = ["apples", "desk", "my job", "school", "foreign languages", "1960 Cuba", "Soviet War Crimes", "plastic bottles", "my basketball team", "my family", "my sanity", "notebooks", "rolling", "new video game", "nuclear missles", "wheels", "me getting beaten up", "winning the lottery", "the new hunger games book", "MoeJoe27#", "cytosine and guanine making bonds", "being lonely", "getting no bitches", "police", "internet"]
+  insults = ["bad", "awful", "successful", "good", "horrific", "downright awful", "shitty"]
+  activities = ["a run", "a walk", "a roll", "a hike", "a climb", "a swim", "a sprint", "a football game", "a game", "a crime", "a robbery", "a fight", "a plane flight", "being relaxed", "a bunch of work", "a jump"]
+  body = ['leg', 'toe', 'shoulder', 'face', 'eyes', 'ears', 'nose', 'mouth', 'tongue', 'chest', 'finger', 'palm', 'hand', 'elbow', 'entire body', 'knee', 'arm','head']
+
+  opener = ["Hello!", `How is your ${tod[Math.floor(Math.random() * tod.length)]} ?`, `I hope you are having a ${insults[Math.floor(Math.random() * insults.length)]} ${tod[Math.floor(Math.random() * tod.length)]}.`, `Are you enjoying the ${tod[Math.floor(Math.random() * tod.length)]}?`, `Don't you feel that nice ${weather[Math.floor(Math.random() * weather.length)]}`, `Nice day for ${activities[Math.floor(Math.random() * activities.length)]}, eh?`, `I'm having a ${insults[Math.floor(Math.random() * insults.length)]} ${day[date.getDay()]}`]
+  neutralSenStarter = [`I like ${things[Math.floor(Math.random() * things.length)]}`, `I don't like ${things[Math.floor(Math.random() * things.length)]}`, `I hate ${things[Math.floor(Math.random() * things.length)]}`, `I love ${things[Math.floor(Math.random() * things.length)]}`, `Do you like ${things[Math.floor(Math.random() * things.length)]}`, `I like to do ${activities[Math.floor(Math.random() * activities.length)]}`]
+  badSenStarter = [`You suck as much as ${things[Math.floor(Math.random() * things.length)]}`, `Go die a ${insults[Math.floor(Math.random()*insults.length)]} death`, `I hope you get hurt in your ${body[Math.floor(Math.random()*body.length)]}`]
+  sadSenStarter = [`I'm having a bad day because of ${things[Math.floor(Math.random() * things.length)]}`, `I am sad because of ${things[Math.floor(Math.random() * things.length + 1)]}`]
+  happySenStarter = [`I'm having a good day because of ${things[Math.floor(Math.random() * things.length)]}`]
+}
+
+function sentence() {
+  reset()
+  firstSen = opener[Math.floor(Math.random()*opener.length)]
+  var random = Math.floor(Math.random() * 10 + 1)
+  reset()
+  if (random == 1 ||random ==2 || random ==3 || random ==4) {secondSen = neutralSenStarter[Math.floor(Math.random()*neutralSenStarter.length)];} else if (random == 5 ||random == 6||random == 7) {secondSen = opener[Math.floor(Math.random()*opener.length)]} else if(random == 8) {secondSen = badSenStarter[Math.floor(Math.random() * badSenStarter.length)]} else if (random == 9) {secondSen = sadSenStarter[Math.floor(Math.random()*sadSenStarter.length)]} else if (random == 10) {secondSen = happySenStarter[Math.floor(Math.random()* happySenStarter.length)]} else {secondSen = "Error"}
+  random = Math.floor(Math.random()*10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { firstSen1 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { firstSen1 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { firstSen1 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { firstSen1 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { firstSen1 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else {firstSen1 = "Error" }
+  random = Math.floor(Math.random() * 10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { secondSen1 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { secondSen1 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { secondSen1 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { secondSen1 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { secondSen1 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else { secondSen1 = "Error" }
+  random = Math.floor(Math.random()*10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { firstSen2 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { firstSen2 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { firstSen2 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { firstSen2 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { firstSen2 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else { firstSen2 = "Error" }
+  random = Math.floor(Math.random() * 10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { secondSen2 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { secondSen2 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { secondSen2 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { secondSen2 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { secondSen2 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else { secondSen2 = "Error" }
+  random = Math.floor(Math.random() * 10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { firstSen3 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { firstSen3 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { firstSen3 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { firstSen3 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { firstSen3 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else { firstSen3 = "Error" }
+  random = Math.floor(Math.random() * 10 + 1)
+  reset()
+  if (random == 1 || random == 2 || random == 3 || random == 4) { secondSen3 = neutralSenStarter[Math.floor(Math.random() * neutralSenStarter.length)]; } else if (random == 5 || random == 6 || random == 7) { secondSen3 = opener[Math.floor(Math.random() * opener.length)] } else if (random == 8) { secondSen3 = badSenStarter[Math.floor(Math.random() * badSenStarter.length)] } else if (random == 9) { secondSen3 = sadSenStarter[Math.floor(Math.random() * sadSenStarter.length)] } else if (random == 10) { secondSen3 = happySenStarter[Math.floor(Math.random() * happySenStarter.length)] } else { secondSen3 = "Error" }
+  addSentences();
+}
+
+
+function addSentences() {
+  document.getElementById("first").innerHTML += firstSen
+  document.getElementById("first1").innerHTML += firstSen1
+  document.getElementById("first2").innerHTML += firstSen2
+  document.getElementById("first3").innerHTML += firstSen3
+
+  document.getElementById("second").innerHTML += secondSen
+  document.getElementById("second1").innerHTML += secondSen1
+  document.getElementById("second2").innerHTML += secondSen2
+  document.getElementById("second3").innerHTML += secondSen3
+}
+
