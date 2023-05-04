@@ -1,0 +1,10 @@
+<h1 id="header">Name generator</h1>
+<button id="gen">Click</button>
+<h3 id="first" class="first">name</h3>
+<h3 id="second" class="second">name2</h3>
+<h3 id="first1" class="first1">name</h3>
+<h3 id="second1" class="second1">name2</h3>
+<h3 id="first2" class="first2">name</h3>
+<h3 id="second2" class="second2">name2</h3>
+<h3 id="first3" class="first3">name</h3>
+<h3 id="second3" class="second3">name2</h3>
